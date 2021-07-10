@@ -20,6 +20,11 @@
 
     <body>
 
+        <!-- Preloader Gif -->
+        <div class="doc-loader">
+            <img src="images/preloader.gif" alt="Loading">
+        </div>
+
         <div id="content" class="site-content">
 
             <div class="content-left">
@@ -529,7 +534,7 @@
 
                                     <div class="one-half width-55 last">
                                         <div class="contact-form">
-                                            <form  id="my-form" action="https://submit-form.com/fkhTLrme" method="POST">
+                                            <form action="php/sendMail.php" method="POST">
 
                                                 <input id="name" type="text" name="name" placeholder="Name">
 
@@ -555,8 +560,9 @@
 
                 </div>
             </div>            
-        </div>        
+        </div>
 
+        <!--Load JavaScript-->
         <script src="js/jquery.js"></script>			                                                               
         <script src='js/imagesloaded.pkgd.js'></script>                
         <script src='js/jquery.prettyPhoto.js'></script>                
