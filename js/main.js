@@ -15,7 +15,6 @@
     setPortfolio();
     setActiveMenuItem();
     portfolioItemContentLoadOnClick();
-    sendMail();
 
 
     $(window).on('load', function () {
@@ -109,7 +108,7 @@
         });
     }
 
-    function setActiveMenuItem() {
+    function setActiveMenuItem(keyframes, options) {
         var currentSection = null;
         var c = $('.content-right .section.section-active').data("num");
         var scroll = $(window).scrollTop();
