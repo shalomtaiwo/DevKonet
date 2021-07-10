@@ -534,7 +534,7 @@
 
                                     <div class="one-half width-55 last">
                                         <div class="contact-form">
-                                            <form action="https://submit-form.com/fkhTLrme">
+                                            <form  id="my-form" action="https://formspree.io/f/xdoyloqe" method="POST">
 
                                                 <input id="name" type="text" name="name" placeholder="Name">
 
@@ -563,6 +563,28 @@
         </div>        
 
         <!--Load JavaScript-->
+        <script>
+            var form = document.getElementById("my-form");
+
+            async function handleSubmit(event) {
+                event.preventDefault();
+                var status = document.getElementById("my-form-status");
+                var data = new FormData(event.target);
+                fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    status.innerHTML = "Thanks for your submission!";
+                    form.reset()
+                }).catch(error => {
+                    status.innerHTML = "Oops! There was a problem submitting your form"
+                });
+            }
+            form.addEventListener("submit", handleSubmit)
+        </script>
         <script src="js/jquery.js"></script>			                                                               
         <script src='js/imagesloaded.pkgd.js'></script>                
         <script src='js/jquery.prettyPhoto.js'></script>                
