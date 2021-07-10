@@ -534,20 +534,20 @@
 
                                     <div class="one-half width-55 last">
                                         <div class="contact-form">
-                                            <form action="php/sendMail.php" method="post">
+                                            <form action="php/sendMail.php" method="POST">
 
-                                                <input id="name" type="text" name="name" placeholder="Name">
+                                                <input id="name" type="text" value="name" name="name" placeholder="Name">
 
 
-                                                <input id="contact-email" type="email" name="email" placeholder="Email">
+                                                <input id="contact-email" type="email" value="email" name="email" placeholder="Email">
 
-                                                <input id="subject" type="text" name="subject" placeholder="Subject">
+                                                <input id="subject" type="text" value="subject" name="subject" placeholder="Subject">
 
 
                                                 <textarea id="message" name="message" placeholder="Message"></textarea>
 
                                             <p class="contact-submit-holder">
-                                                <input type="submit" value="SEND">
+                                                <input type="submit" name="submit" value="SEND">
                                             </p>
                                             </form>
                                         </div> 
