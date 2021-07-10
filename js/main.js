@@ -329,63 +329,23 @@
         return pattern.test(emailAddress);
     }
 
-    function sendMail() {
-        $('.contact-form [type="submit"]').on('click', function () {
+    var form = document.getElementById("my-form");
 
-            var emailVal = $('#contact-email').val();
-
-            if (isValidEmailAddress(emailVal)) {
-                var params = {
-                    'action': 'SendMessage',
-                    'name': $('#name').val(),
-                    'email': $('#contact-email').val(),
-                    'subject': $('#subject').val(),
-                    'message': $('#message').val()
-                };
-                $.ajax({
-                    type: "POST",
-                    url: "php/sendMail.php",
-                    data: params,
-                    success: function (response) {
-                        if (response) {
-                            var responseObj = $.parseJSON(response);
-                            if (responseObj.ResponseData)
-                            {
-                                alert(responseObj.ResponseData);
-                            }
-                        }
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        //xhr.status : 404, 303, 501...
-                        var error = null;
-                        switch (xhr.status)
-                        {
-                            case "301":
-                                error = "Redirection Error!";
-                                break;
-                            case "307":
-                                error = "Error, temporary server redirection!";
-                                break;
-                            case "400":
-                                error = "Bad request!";
-                                break;
-                            case "404":
-                                error = "Page not found!";
-                                break;
-                            case "500":
-                                error = "Server is currently unavailable!";
-                                break;
-                            default:
-                                error = "Unespected error, please try again later.";
-                        }
-                        if (error) {
-                            alert(error);
-                        }
-                    }
-                });
-            } else {
-                alert('Your email is not in valid format');
+    async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
             }
+        }).then(response => {
+            status.innerHTML = "Thanks for your submission!";
+            form.reset()
+        }).catch(error => {
+            status.innerHTML = "Oops! There was a problem submitting your form"
         });
     }
 
