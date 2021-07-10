@@ -375,6 +375,8 @@
                             case "500":
                                 error = "Server is currently unavailable!";
                                 break;
+                            default:
+                                error = "Unespected error, please try again later.";
                         }
                         if (error) {
                             alert(error);
