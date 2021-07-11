@@ -549,16 +549,16 @@
                                         <input name="firstname" type="text" id="firstname" placeholder="First name" class="hide-robot" autocomplete="off">
                                         <!-- honeypot fields end -->
 
-                                        <input id="name" type="text" name="name" placeholder="Name">
+                                        <input id="name" type="text" name="name" placeholder="Name" required="required">
 
 
-                                        <input id="contact-email" type="email" name="email" placeholder="Email">
+                                        <input id="contact-email" type="email" name="email" placeholder="Email" required="required">
 
-                                        <input id="subject" type="text" name="subject" placeholder="Subject">
+                                        <input id="subject" type="text" name="subject" placeholder="Subject" required="required">
 
 
-                                        <textarea id="message" name="message" placeholder="Message"></textarea>
-
+                                        <textarea id="message" name="message" placeholder="Message" required="required"></textarea>
+                                        <div class="g-recaptcha brochure__form__captcha" data-sitekey="YOUR SITE KEY" aria-required="true"></div>
                                         <p class="contact-submit-holder">
                                             <input type="submit" value="SEND">
                                         </p>
@@ -584,6 +584,7 @@
 <script src='js/owl.carousel.min.js'></script>
 <script src='js/circle-progress.min.js'></script>
 <script src='js/main.js'></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 </body>
 </html>
