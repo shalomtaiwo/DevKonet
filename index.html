@@ -543,8 +543,16 @@
 
                             <div class="one-half width-55 last">
                                 <div class="contact-form">
-                                    <form id="my-form" action="https://send.pageclip.co/TvOp4SivmHn2y0E3NkSJTSaErceiel72" method="post">
-
+                                    <form class="contact__form" id="my-form" action="mail.php" method="post">
+                                        <!-- form message -->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="contact__msg" style="display: none">
+                                                    <p>Your message was sent successfully.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end message -->
                                         <!-- Create fields for the honeypot -->
                                         <input name="firstname" type="text" id="firstname" placeholder="First name" class="hide-robot" autocomplete="off">
                                         <!-- honeypot fields end -->
@@ -584,6 +592,7 @@
 <script src='js/owl.carousel.min.js'></script>
 <script src='js/circle-progress.min.js'></script>
 <script src='js/main.js'></script>
+<script src="main.js"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 </body>
