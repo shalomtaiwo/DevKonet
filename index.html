@@ -1,4 +1,6 @@
+
 <!DOCTYPE HTML>
+
 <html lang="en-US">
 <head>
     <title>Devkonet - Emmanuel Ogunnowo </title>
@@ -529,19 +531,58 @@
                                 </p>
                             </div>
 
+<?php
+
+ if($_POST){
+
+$to = 'tshalom01@gmail.com';
+$subject = 'Testing HoneyPot';
+$header = "From: $name";
+
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $message = $_POST['message'];
+
+   //honey pot field
+   $honeypot = $_POST['firstname'];
+
+   //check if the honeypot field is filled out. If not, send a mail.
+   if( ! empty( $honeypot ) ){
+   return; //you may add code here to echo an error etc.
+    }else{
+        mail( $to, $subject, $message, $header );
+           }
+           }
+
+          ?>
+
+                                <style>
+                                    .hide-robot{
+                                        opacity: 0;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        height: 0;
+                                        width: 0;
+                                        z-index: -1;
+                                    }
+                                </style>
+
                             <div class="one-half width-55 last">
                                 <div class="contact-form">
-                                    <form id="my-form" action="https://send.pageclip.co/TvOp4SivmHn2y0E3NkSJTSaErceiel72" method="post">
+                                    <form id="my-form" action="#my-form" method="post">
 
-                                        <input id="name" type="text" name="name" placeholder="Name">
+                                        <!-- Create fields for the honeypot -->
+                                        <input name="firstname" type="text" id="firstname" placeholder="First name" class="hide-robot" autocomplete="off">
+                                        <!-- honeypot fields end -->
+
+                                        <input id="name" type="text" name="name" placeholder="Name" required>
 
 
-                                        <input id="contact-email" type="email" name="email" placeholder="Email">
-
-                                        <input id="subject" type="text" name="subject" placeholder="Subject">
+                                        <input id="contact-email" type="email" name="email" placeholder="Email" required>
 
 
-                                        <textarea id="message" name="message" placeholder="Message"></textarea>
+                                        <textarea id="message" name="message" placeholder="Message" required></textarea>
 
                                         <p class="contact-submit-holder">
                                             <input type="submit" value="SEND">
